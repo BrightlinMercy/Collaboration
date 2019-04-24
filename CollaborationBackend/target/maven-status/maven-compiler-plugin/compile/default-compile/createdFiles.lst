@@ -1,0 +1,11 @@
+com\instagroup\CollaborationBackend\Dao\UserDao.class
+com\instagroup\CollaborationBackend\model\User.class
+com\instagroup\CollaborationBackend\model\Blog.class
+com\instagroup\CollaborationBackend\DaoImpl\BlogDaoImpl.class
+com\instagroup\CollaborationBackend\DaoImpl\UserDaoImpl.class
+com\instagroup\CollaborationBackend\Dao\BlogDao.class
+com\instagroup\CollaborationBackend\model\Forum.class
+com\instagroup\CollaborationBackend\DaoImpl\BlogCommentDaoImpl.class
+com\instagroup\CollaborationBackend\Dao\BlogCommentDao.class
+com\instagroup\CollaborationBackend\DbConfig.class
+com\instagroup\CollaborationBackend\model\BlogComment.class
