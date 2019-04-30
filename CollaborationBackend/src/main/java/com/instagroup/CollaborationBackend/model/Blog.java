@@ -4,15 +4,17 @@ import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.ManyToOne;
 
 @Entity
-@Table	
 public class Blog {
 
 	@Column
 	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int blogid;
 	
 	@Column(nullable=false)
@@ -21,8 +23,6 @@ public class Blog {
 	@Column
 	private String blogcontent;
 	
-	@Column(nullable=false)
-	private String username;
 	
 	@Column(nullable=false)
 	private Date createdate;
@@ -35,6 +35,9 @@ public class Blog {
 	
 	@Column
 	private int dislike;
+	
+	@ManyToOne
+	private User useremailid;
 	
 	
 	public int getBlogid() {
@@ -61,13 +64,6 @@ public class Blog {
 		this.blogcontent = blogcontent;
 	}
 
-	public String getUsername() {
-		return username;
-	}
-
-	public void setUsername(String username) {
-		this.username = username;
-	}
 
 	public Date getCreatedate() {
 		return createdate;

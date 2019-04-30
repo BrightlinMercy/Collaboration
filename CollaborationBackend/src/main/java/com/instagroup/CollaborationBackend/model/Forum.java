@@ -4,12 +4,15 @@ import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Forum {
 
-	@Column
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	@Id
 	private int forumid;
 	
@@ -19,8 +22,8 @@ public class Forum {
 	@Column(nullable=false)
 	private String forumcontent;
 	
-	@Column(nullable=false)
-	private String username;
+	@ManyToOne
+	private User useremailid;
 	
 	@Column(nullable=false)
 	private Date createdate;
@@ -52,13 +55,7 @@ public class Forum {
 		this.forumcontent = forumcontent;
 	}
 
-	public String getUsername() {
-		return username;
-	}
-
-	public void setUsername(String username) {
-		this.username = username;
-	}
+	
 
 	public Date getCreatedate() {
 		return createdate;

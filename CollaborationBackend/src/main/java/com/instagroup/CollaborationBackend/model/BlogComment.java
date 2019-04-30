@@ -2,19 +2,26 @@ package com.instagroup.CollaborationBackend.model;
 
 import java.util.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.ManyToOne;
 
 @Entity
-@Table
 public class BlogComment {
-
+	@GeneratedValue(strategy=GenerationType.AUTO)
+	@Column
 	private int commentid;
-	private int blogid;
-	private String commentdata;
-	Date createDate;
-	String username;
-
+    @Column
+    private int blogid;
+    @Column
+    private String commentdata;
+    @Column
+    Date createDate;
+    @ManyToOne
+    private User useremailid;
+    
 	public int getCommentid() {
 		return commentid;
 	}
@@ -47,12 +54,6 @@ public class BlogComment {
 		this.createDate = createDate;
 	}
 
-	public String getUsername() {
-		return username;
-	}
 
-	public void setUsername(String username) {
-		this.username = username;
-	}
 
 }
