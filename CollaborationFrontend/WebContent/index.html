@@ -1,315 +1,168 @@
-<!DOCTYPE html>
 <html>
 <head>
-<meta charset="ISO-8859-1">
-<title>Insert title here</title>
-<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-route.js"></script>
-<script src="RouteConfig.js"></script>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css"
+	integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd"
+	crossorigin="anonymous">
+<!-- font awesome -->
 <link
-	href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+	href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css"
+	rel="stylesheet"
+	integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1"
+	crossorigin="anonymous">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
 	rel="stylesheet" id="bootstrap-css">
 <script
-	src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
 <script
-	src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<link rel="icon" href="resources/images/Capture3.PNG" type="image/gif"
-	size="16*16">
-<script>
-$(function() {
-	'use strict';
-	// Start navbar 
-	(function() {
-		// Add class active when the user clicks the lis of the menu
-		$('.nav .list li').on(
-				'click',
-				'a',
-				function() {
-					$(this).parent().addClass('active').siblings()
-							.removeClass('active');
-				});
-		var openCategories = $('.nav #open-categories'), categories = $('.drop-down');
-		// Toggle categories on clicking
-		openCategories.on('click', function() {
-			$("#" + $(this).data('dropdown')).toggleClass('show');
-			// When the user clicks the window if the categories is not the target, close it.
-			$(window).on(
-					'mouseup',
-					function(e) {
-						if (categories.hasClass('show')
-								&& !categories.is(e.target)
-								&& categories.has(e.target).length === 0
-								&& !openCategories.is(e.target)) {
-							console.log("d");
-							categories.removeClass('show');
-						}
-					});
-		});
-		// Toggle menu, This will be shown in Extra small screens only
-		$('.nav .toggle-nav').on('click', function() {
-			$("#" + $(this).data('toggle')).slideToggle(300);
-		});
-	}());
-});
-</script>
+	src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script type="text/javascript"
+	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.js"></script>
+<script type="text/javascript"
+	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular-route.js"></script>
 
+<script src="js/app.js"></script>
+<script src="js/Userjs/UserController.js"></script>
+<script src="js/JobJs/JobController.js"></script>
+<script src="js/BlogJs/BlogController.js"></script>
+<script src="js/ForumJs/ForumController.js"></script>
+
+
+
+
+
+<!------ Include the above in your HEAD tag ---------->
+<script>
+	$(document).ready(function() {
+		$('.navbar-light .dmenu').hover(function() {
+			$(this).find('.sm-menu').first().stop(true, true).slideDown(150);
+		}, function() {
+			$(this).find('.sm-menu').first().stop(true, true).slideUp(105)
+		});
+	});
+</script>
 <style>
-.container:after, .container:before {
-	content: "";
-	display: block;
-	clear: both;
+.navbar {
+background:
+		url('https://static1.squarespace.com/static/556dad00e4b074f7195938e5/582b29155016e1e43d9d5490/583ed843197aea24502029cd/1480514718651/bigstock-Business-People-Corporate-Meet-96723161.jpg?format=1500w')
+		no-repeat center center;	
+		font-size: 20px;
+	font-family: casteller;
 }
-/* Start navbar */
-.nav {
-	background-color: #800080;
-	border-bottom: 1px solid #ececec;
-	height: auto;
+
+.dropdown {
+	border-radius: 0;
+	border: 0;
+	font-size: 20px;
+	font-family: casteller;
 }
-.nav .nav-heading {
-	float: left
+
+.dropdown-menu {
+	background: #344367;
+	border: 0;
+	top: 80%;
+	border-radius: 0px 0px 5px 5px;
+	font-size: 15px;
 }
-.nav .nav-heading .toggle-nav {
-	padding: 2px 10px;
-	border-radius: 5px;
-	border: none;
-	display: none;
-	background-color: transparent;
+
+.dropdown-item:hover {
+	background: none;
+	font-color: #fff;
 }
-.nav .nav-heading>a {
-	text-decoration: none;
-	color: #000;
-	line-height: 60px;
-	font-weight: 400;
-	font-size: 19px;
+
+.dropdown-menu a {
+	color: #fff;
 }
-/* Start menu */
-.nav .menu {
-	float: right;
+
+.navbar .nav-item .nav-link {
+	color: #eee !important;
 }
-.nav .menu:after {
-	content: "";
-	clear: both;
-	display: block;
+
+.navbar .nav-item .nav-link:hover .navbar .nav-item .nav-link {
+	color: red !important;
 }
-.nav .list {
-	float: right;
-	margin: 0;
+
+.footer {
+background:
+		url('https://static1.squarespace.com/static/556dad00e4b074f7195938e5/582b29155016e1e43d9d5490/583ed843197aea24502029cd/1480514718651/bigstock-Business-People-Corporate-Meet-96723161.jpg?format=1500w')
+		no-repeat center center;	text-align: center;
 }
-.nav .list>li {
-	float: left;
-	list-style: none;
+
+#justpushtobottom {
+	height: 82vh;
 }
-.nav .list>li>a {
-	color: white;
-	text-decoration: none;
-	display: block;
-	line-height: 60px;
-	padding: 0px 15px;
+
+.h6 {
+	color: #ffffff;
+	font-size: 15px;
+	font-family: casteller;
 }
-.nav .list>li>a:hover {
-	padding: 0px 35px;
-}
-.nav .list>li.active>a {
-	color: #333
-}
-/* Start drodpwn menu */
-.categories {
-	position: relative;
-}
-.nav .list .categories .drop-down {
-	list-style: none;
-	position: absolute;
-	top: 100%;
-	left: 0;
-	background-color: #FFF;
-	border: 1px solid #ccc;
-	padding: 5px 0;
-	min-width: 160px;
-	width: auto;
-	white-space: nowrap;
-	-webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, .175);
-	box-shadow: 0 6px 12px rgba(0, 0, 0, .175);
-	display: none;
-	z-index: 99999
-}
-.nav .list .drop-down>.seprator {
-	height: 1px;
-	width: 100%;
-	margin: 9px 0;
-	background-color: #e5e5e5
-}
-.drop-down>li>a {
-	color: #333;
-	display: block;
-	padding: 3px 20px;
-	text-decoration: none;
-}
-.show {
-	display: block
-}
-/* Sub dropdown menu */
-.categories .drop-down .sub-drop-down {
-	position: relative
-}
-.categories .drop-down .sub-drop-down:hover .sub-dropdown {
-	display: block;
-}
-.categories .drop-down .sub-dropdown {
-	position: absolute;
-	top: -20px;
-	left: 107%;
-	list-style: none;
-	background-color: #ffffff;
-	border: 1px solid #cccccc;
-	border-radius: 3px;
-	padding: 10px;
-	-webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, .175);
-	box-shadow: 0 6px 12px rgba(0, 0, 0, .175);
-	display: none;
-}
-.categories .drop-down .sub-dropdown:before {
-	content: "";
-	display: block;
-	position: absolute;
-	top: 20px;
-	left: -20px;
-	border-top: 10px solid transparent;
-	border-left: 10px solid transparent;
-	border-bottom: 10px solid transparent;
-	border-right: 10px solid #cccccc
-}
-.categories .drop-down .sub-dropdown>li>a {
-	color: white;
-	padding: 5px 0;
-	display: block
-}
-/* End sub dropdown menu */
-/* Dark theme */
-.dark-nav {
-	background-color: black
-}
-.dark-nav .list>li>a {
-	color: #ffB
-}
-.dark-nav .list>li>a:hover {
-	color: red;
-}
-.dark-nav .nav-heading>a {
-	color: #EEE
-}
-.dark-nav .nav-heading .toggle-nav {
-	color: #EEE
-}
-/* End Dark theme */
-/* Start media query for navbar */
-@media ( max-width : 767px) {
-	.nav .container {
-		padding-right: 0;
-		padding-left: 0;
-	}
-	.nav .nav-heading {
-		width: 100%;
-		padding-left: 15px;
-		padding-right: 15px;
-		border-bottom: 1px solid #ffe7e7
-	}
-	.nav .nav-heading .brand {
-		float: left
-	}
-	.nav .nav-heading .toggle-nav {
-		display: block;
-		float: right;
-		margin-top: 14px;
-	}
-	.nav .menu {
-		width: 100%;
-		padding-left: 15px;
-		padding-right: 15px;
-		display: none;
-	}
-	.nav .list {
-		float: none;
-		width: 100%;
-	}
-	.nav .list>li {
-		float: none;
-		width: 100%;
-	}
-	.nav .list>li>a {
-		padding: 12px 0;
-		line-height: 1
-	}
-	.nav .list .categories .drop-down {
-		background-color: transparent;
-		border: none;
-		position: static;
-		-webkit-box-shadow: none;
-		box-shadow: none;
-		padding: 0
-	}
-	.categories .drop-down .sub-dropdown {
-		position: static;
-		background-color: transparent;
-		border: none;
-		-webkit-box-shadow: none;
-		box-shadow: none;
-		padding-left: 20px;
-	}
-	.categories .drop-down .sub-dropdown>li>a {
-		color: #ff8;
-	}
-	.categories .drop-down .sub-dropdown:before {
-		display: none
-	}
-	/* Simple reset for dark theme */
-	.dark-nav .menu {
-		background-color: #ff28ff
-	}
-	.dark-nav .nav-heading {
-		border-bottom-color: #ff343c
-	}
-	.dark-nav .list .drop-down>li>a {
-		color: #AAA
-	}
-	.dark-nav .list .categories .drop-down .seprator {
-		background-color: #2a2d38
-	}
+.navbar-brand
+{
+font-size: 30px;
+font-weight: bolder;
 }
 </style>
-<meta charset="ISO-8859-1">
-<title>InstaGroup</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-</head>
 <body ng-app="myApp">
-<nav class="nav">
-		<div class="container">
-			<div class="nav-heading">
-				<button class="toggle-nav" data-toggle="open-navbar1">
-					<i class="fa fa-align-right"></i>
-				</button>
+	<nav class="navbar navbar-expand-sm   navbar-light bg-light">
+		<button class="navbar-toggler" type="button" data-toggle="collapse"
+			data-target="#navbarTogglerDemo03"
+			aria-controls="navbarTogglerDemo03" aria-expanded="false"
+			aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<a class="navbar-brand" href="#/"><span class="bg-main">INSTA GROUP</span></a>
 
-				<a class="navbar-brand" href="#"> 
-				<h3>InstaGroup</h3>
-				</a>
+		<div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+			<ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+				<li class="nav-item"><a class="nav-link" href="#/">Home <span
+						class="sr-only">(current)</span></a></li>
 
 
-			</div>
-			<div class="menu" id="open-navbar1">
-						<ul class="list">
-							<li><a href="#/userhome"><span
-									class="glyphicon glyphiconHome"></span>Home</a></li>
-
-							<li><a href="#/aboutus">About Us</a></li>
-							<li><a href="#/contactus">Contact us</a></li>
-							<li><a href="#/login">Login</a></li>
-							<li><a href="#/register">register</a></li>
-						</ul>
-
-									</div>
+				<li class="nav-item"><a class="nav-link" href="#/login">Login</a></li>
+				<li class="nav-item"><a class="nav-link" href="#/register">Register</a>
+				</li>
+				<li class="nav-item dropdown dmenu"><a
+					class="nav-link dropdown-toggle" href="#" id="navbardrop"
+					data-toggle="dropdown"> Blog </a>
+					<div class="dropdown-menu sm-menu">
+						<a class="dropdown-item" href="#/blog">Add Blog</a> <a
+							class="dropdown-item" href="#/showblog">Show Blog</a>
+					</div></li>
+				<li class="nav-item dropdown dmenu"><a
+					class="nav-link dropdown-toggle" href="#" id="navbardrop"
+					data-toggle="dropdown"> Forum </a>
+					<div class="dropdown-menu sm-menu">
+						<a class="dropdown-item" href="#/forum">Add Forum</a> <a
+							class="dropdown-item" href="#/showforum">Show Forum</a>
+					</div></li>
+				<li class="nav-item dropdown dmenu"><a
+					class="nav-link dropdown-toggle" href="#" id="navbardrop"
+					data-toggle="dropdown"> Job </a>
+					<div class="dropdown-menu sm-menu">
+						<a class="dropdown-item" href="#/job">Add Job</a> <a
+							class="dropdown-item" href="#/showjob">Show Job</a>
+					</div></li>
+			</ul>
 		</div>
 	</nav>
-<div ng-view></div>
-
+	<div style="min-height: 450px" ng-view></div>
+	<footer class="footer p-t-3">
+		<div class="container">
+			<a href="https://www.facebook.com"><i
+				class="fa fa-facebook-official fa-2x"></i></a> <a
+				href="https://www.twitter.com"><i class="fa fa-twitter fa-2x"></i></a>
+			<a href="https://www.googleplus.com"><i
+				class="fa fa-google-plus fa-2x"></i></a> <a
+				href="https://www.linkedin.com"><i class="fa fa-linkedin fa-2x"></i></a>
+			<p class="h6">
+				@All Rights Reserved <a href="http://www.paradigmOz.com"
+					target="_blank"></a>
+			</p>
+		</div>
+	</footer>
 </body>
 </html>
